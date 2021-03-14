@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>无标题文档</title>
 <style type="text/css">
 <!--
@@ -40,31 +40,27 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	text-decoration: none;
 }
 
-/* ~~ 此固定宽度容器包含其它 div ~~ */
+/* ~~ 此固定宽度容器包含所有其它 div ~~ */
 .container {
 	width: 960px;
 	background: #FFF;
 	margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
-}
-
-/* ~~ 标题未指定宽度。它将扩展到布局的完整宽度。标题包含一个图像占位符，该占位符应替换为您自己的链接徽标 ~~ */
-.header {
-	background: #ADB96E;
+	overflow: hidden; /* 此声明可使 .container 了解其内部浮动列的结束位置以及包含列的位置 */
 }
 
 /* ~~ 以下是此布局的列。 ~~ 
 
-1) 填充只会放置于 div 的顶部和/或底部。此 div 中的元素侧边会有填充。这样，您可以避免使用任何"方框模型数学"。请注意，如果向 div 自身添加任何侧边填充或边框，这些侧边填充或边框将与您定义的宽度相加，得出 *总计* 宽度。您也可以选择删除 div 中的元素的填充，并在该元素中另外放置一个没有任何宽度但具有设计所需填充的 div。
+1) 填充只会放置于 div 的顶部和/或底部。此 div 中的元素侧边会有填充。这样，您可以避免使用任何“方框模型数学”。请注意，如果向 div 自身添加任何侧边填充或边框，这些侧边填充或边框将与您定义的宽度相加，得出 *总计* 宽度。您也可以选择删除 div 中的元素的填充，并在该元素中另外放置一个没有任何宽度但具有设计所需填充的 div。
 
 2) 由于这些列均为浮动列，因此未对其指定边距。如果必须添加边距，请避免在浮动方向一侧放置边距（例如：div 中的右边距设置为向右浮动）。在很多情况下，都可以改用填充。对于必须打破此规则的 div，应向该 div 的规则中添加“display:inline”声明，以控制某些版本的 Internet Explorer 会使边距翻倍的错误。
 
 3) 由于可以在一个文档中多次使用类（并且一个元素可以应用多个类），因此已向这些列分配类名，而不是 ID。例如，必要时可堆叠两个侧栏 div。您可以根据个人偏好将这些名称轻松地改为 ID，前提是仅对每个文档使用一次。
 
-4) 如果您更喜欢在右侧（而不是左侧）进行导航，只需使这些列向相反方向浮动（全部向右，而非全部向左），它们将按相反顺序显示。您无需在 HTML 源文件中移动 div。
+4) 如果您更喜欢在左侧（而不是右侧）进行导航，只需使这些列向相反方向浮动（全部向左，而非全部向右），它们将按相反顺序显示。您无需在 HTML 源文件中移动 div。
 
 */
 .sidebar1 {
-	float: left;
+	float: right;
 	width: 180px;
 	background: #EADCAE;
 	padding-bottom: 10px;
@@ -73,7 +69,7 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 
 	padding: 10px 0;
 	width: 780px;
-	float: left;
+	float: right;
 }
 
 /* ~~ 此分组的选择器为 .content 区域中的列表提供了空间 ~~ */
@@ -102,14 +98,6 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 	color: #FFF;
 }
 
-/* ~~ 脚注 ~~ */
-.footer {
-	padding: 10px 0;
-	background: #CCC49F;
-	position: relative;/* 这可以使 IE6 hasLayout 以正确方式进行清除 */
-	clear: both; /* 此清除属性强制 .container 了解列的结束位置以及包含列的位置 */
-}
-
 /* ~~ 其它浮动/清除类 ~~ */
 .fltrt {  /* 此类可用于在页面中使元素向右浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
 	float: right;
@@ -119,7 +107,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 	float: left;
 	margin-right: 8px;
 }
-.clearfloat { /* 如果从 #container 中删除或移出了 #footer，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
+.clearfloat { /* 如果从 .container 中删除了 overflow:hidden，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
 	clear:both;
 	height:0;
 	font-size: 1px;
@@ -131,8 +119,6 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 <body>
 
 <div class="container">
-  <div class="header"><a href="#"><img src="" alt="在此处插入徽标" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
-    <!-- end .header --></div>
   <div class="sidebar1">
     <ul class="nav">
       <li><a href="#">链接一</a></li>
@@ -140,24 +126,12 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
       <li><a href="#">链接三</a></li>
       <li><a href="#">链接四</a></li>
     </ul>
-    <p> 以上链接说明了一种基本导航结构，该结构使用以 CSS 设置样式的无序列表。请以此作为起点修改属性，以生成您自己的独特外观。如果需要弹出菜单，请使用 Spry 菜单、Adobe Exchange 中的菜单构件 或其它各种 javascript 或 CSS 解决方案创建您自己的菜单。</p>
-    <p>如果您想要在顶部进行导航，只需将 ul.nav 移到页面顶部并重新创建样式即可。</p>
+    <p>&nbsp;</p>
     <!-- end .sidebar1 --></div>
   <div class="content">
-    <h1>说明</h1>
-    <p>请注意，这些布局的 CSS 带有大量注释。如果您的大部分工作都在设计视图中进行，请快速浏览一下代码，获取有关如何使用固定布局 CSS 的提示。您可以先删除这些注释，然后启动您的站点。要了解有关这些 CSS 布局中使用的方法的更多信息，请阅读 Adobe 开发人员中心上的以下文章：<a href=http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>。您可以先删除这些注释，然后启动您的站点。若要了解有关这些 CSS 布局中使用的方法的更多信息，请阅读 Adobe 开发人员中心上的以下文章：<a href=http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>。</p>
-    <h2>清除方法</h2>
-    <p>由于所有列都是浮动的，因此，此布局在 .footer 规则中采用 clear:both 声明。此清除方法强制使 .container 了解列的结束位置，以便显示在 .container 中放置的任何边框或背景颜色。如果您的设计要求您从 .container 中删除 .footer，则需要采用其它清除方法。最可靠的方法是在最后一个浮动列之后（但在 .container 结束之前）添加 &lt;br class="clearfloat" /&gt; or &lt;div class="clearfloat"&gt;&lt;/div&gt;。这具有相同的清除效果。</p>
-    <h3>徽标替换</h3>
-    <p>此布局的 .header 中使用了图像占位符，您可能希望在其中放置徽标。建议您删除此占位符，并将其替换为您自己的链接徽标。 </p>
-    <p> 请注意，如果您使用属性检查器导航到使用 SRC 字段的徽标图像（而不是删除并替换占位符），则应删除内嵌背景和显示属性。这些内嵌样式仅用于在浏览器中出于演示目的而显示徽标占位符。 </p>
-    <p>要删除内嵌样式，请确保将 CSS 样式面板设置为“当前”。选择图像，然后在“CSS 样式”面板的“属性”窗格中右键单击并删除显示和背景属性。（当然，您始终可以直接访问代码，并在其中删除图像或占位符的内嵌样式。）</p>
-    <h4>背景</h4>
-    <p>本质上，任何 div 中的背景颜色将仅显示与内容一样的长度。这意味着，如果要使用背景颜色或边框创建侧面列的外观，将不会一直扩展到脚注，而是在内容结束时停止。如果 .content div 将始终包含更多内容，则可以在 .content div 中放置一个边框将其与列分开。</p>
+    <h1>梦开始的地方</h1>
+    <p>制作：王雨翔</p>
     <!-- end .content --></div>
-  <div class="footer">
-    <p>此 .footer 包含声明 position:relative，以便为 .footer 指定 Internet Explorer 6 hasLayout，并使其以正确方式清除。如果您不需要支持 IE6，则可以将其删除。</p>
-    <!-- end .footer --></div>
   <!-- end .container --></div>
 </body>
 </html>
