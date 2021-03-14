@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -130,6 +129,15 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
     <!-- end .sidebar1 --></div>
   <div class="content">
     <h1>梦开始的地方</h1>
+    <hr>
+    <p><strong>个人简介：</strong></p>
+    <ul>
+      <li>坐标：119.28°E,26.08°N</li>
+      <li>学校：YA</li>
+      <li>生卒年月日：2008-2-15 ~ INF</li>
+    </ul>
+<hr>
+    <p>&nbsp;</p>
     <p>制作：王雨翔</p>
     <!-- end .content --></div>
   <!-- end .container --></div>
