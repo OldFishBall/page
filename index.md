@@ -5,11 +5,14 @@
 <style type="text/css">
 <!--
 body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background: #42413C;
 	margin: 0;
 	padding: 0;
 	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.4;
+	background-color: #0FF;
+	background-image: url(img1.jpg);
 }
 
 /* ~~ 元素/标签选择器 ~~ */
@@ -120,10 +123,10 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 <div class="container">
   <div class="sidebar1">
     <ul class="nav">
-      <li><a href="#">链接一</a></li>
-      <li><a href="#">链接二</a></li>
-      <li><a href="#">链接三</a></li>
-      <li><a href="#">链接四</a></li>
+      <li><a href="#">失效的链接一</a></li>
+      <li><a href="#">失效的链接二</a></li>
+      <li><a href="#">失效的链接三</a></li>
+      <li><a href="#">失效的链接四</a></li>
     </ul>
     <p>&nbsp;</p>
     <!-- end .sidebar1 --></div>
@@ -136,7 +139,16 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
       <li>学校：YA</li>
       <li>生卒年月日：2008-2-15 ~ INF</li>
     </ul>
-<hr>
+    <p>&nbsp;</p>
+    <ul>
+      <li>学废的编程：
+        <ol>
+          <li>C++（2020CSP-J二等的那种）</li>
+          <li>Python（基础语法都搞不定的那种）</li>
+        </ol>
+      </li>
+    	</ul>
+    <hr>
     <p>&nbsp;</p>
     <p>制作：王雨翔</p>
     <!-- end .content --></div>
